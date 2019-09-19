@@ -18,7 +18,18 @@ schemas	default	id	default
 						bloopSpec	None
 						environment	
 						properties	
-						policy	
+						policy	java.util.PropertyPermission scala.copyright.string read	className	java.util.PropertyPermission
+								target	scala.copyright.string
+								action	Some	read
+							java.util.PropertyPermission scala.maven.version.number read	className	java.util.PropertyPermission
+								target	scala.maven.version.number
+								action	Some	read
+							java.util.PropertyPermission scala.time read	className	java.util.PropertyPermission
+								target	scala.time
+								action	Some	read
+							java.util.PropertyPermission scala.version.number read	className	java.util.PropertyPermission
+								target	scala.version.number
+								action	Some	read
 					test	id	test
 						kind	Application
 						main	Some	core.MainTest
