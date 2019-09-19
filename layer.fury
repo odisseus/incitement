@@ -1,0 +1,97 @@
+version	3
+schemas	default	id	default
+		projects	example	id	example
+				modules	core	id	core
+						kind	Application
+						main	Some	core.Main
+						plugin	None
+						manifest	
+						compiler	projectId	scala
+							moduleId	compiler
+							intransitive	true
+							hidden	false
+						after	
+						params	
+						sources	core/src	core/src
+						binaries	
+						resources	
+						bloopSpec	None
+						environment	
+						properties	
+						policy	
+					test	id	test
+						kind	Application
+						main	Some	core.MainTest
+						plugin	None
+						manifest	
+						compiler	projectId	scala
+							moduleId	compiler
+							intransitive	true
+							hidden	false
+						after	example/core	projectId	example
+								moduleId	core
+								intransitive	false
+								hidden	false
+							probably/cli	projectId	probably
+								moduleId	cli
+								intransitive	false
+								hidden	false
+						params	
+						sources	test/src	test/src
+						binaries	
+						resources	
+						bloopSpec	None
+						environment	
+						properties	
+						policy	
+				main	Some	core
+				license	unknown
+				description	
+				compiler	Some	projectId	scala
+						moduleId	compiler
+						intransitive	true
+						hidden	false
+			scala	id	scala
+				modules	compiler	id	compiler
+						kind	Compiler
+						main	None
+						plugin	None
+						manifest	
+						compiler	projectId	java
+							moduleId	compiler
+							intransitive	false
+							hidden	false
+						after	
+						params	
+						sources	
+						binaries	org.scala-lang:scala-compiler:2.12.8	binRepo	central
+								group	org.scala-lang
+								artifact	scala-compiler
+								version	2.12.8
+						resources	
+						bloopSpec	Some	org	scala-lang.org
+								name	scala-compiler
+								version	2.12.8
+						environment	
+						properties	
+						policy	
+				main	Some	compiler
+				license	unknown
+				description	
+				compiler	None
+		repos	platform	id	platform
+				repo	gh:propensive/platform
+				track	master
+				commit	d1e7aae5000e1efe92b2bde48bdb82c6064c7e06
+				local	None
+		imports	platform:default	repo	platform
+				schema	default
+		main	Some	example
+main	default
+aliases	test	cmd	test
+		description	Run the tests
+		schema	None
+		module	projectId	example
+			moduleId	test
+			intransitive	false
+			hidden	false
